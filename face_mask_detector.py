@@ -29,11 +29,11 @@ def process_predict_image(image_path):
     image_label = np.argmax(prediction)
     
     if image_label == 1:
-        result = "The image is predicted to be wearing a face mask."
+        #result = np.max(prediction)
+        return "The image is predicted to be wearing a face mask with probability"
     else:
-        result = "The image is predicted not to be wearing a face mask."
-    
-    return result
+        #result = np.max(prediction)
+        return "The image is predicted to be not wearing a face mask with probability"
 
 # Streamlit app
 st.title('Face Mask Detector using CNN')
@@ -42,8 +42,7 @@ st.title('Face Mask Detector using CNN')
 uploaded_file = st.file_uploader("Choose an image...", type=['png', 'jpeg', 'jpg'])
 if uploaded_file is not None:
     # Preprocess the image and get the prediction
-    prediction = process_predict_image(uploaded_file)
     
-    st.write(f'Prediction: {prediction}')
+    st.write(f'**Prediction**: {process_predict_image(uploaded_file)}')
 
         
