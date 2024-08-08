@@ -1,6 +1,5 @@
 import streamlit as st
 import tensorflow 
-#import cv2
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.models import Sequential
@@ -14,12 +13,6 @@ model = load_model('face_mask_cnn_model1.keras')
 def process_predict_image(image_path):
     # Read the image
     img = load_img(image_path, target_size=(128, 128))
-    #img = cv2.imdecode(np.fromstring(image.read(), np.uint8), 1)
-    #img = cv2.resize(img, (150, 150))
-    
-    # Convert image to RGB
-    #img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    
     # Display the image
     plt.imshow(img)
     plt.axis('off')
