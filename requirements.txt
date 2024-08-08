@@ -1,6 +1,7 @@
 streamlit
 tensorflow
 keras
+matplotlib.pyplot
 
 
 
