@@ -21,9 +21,9 @@ def process_predict_image(img):
 
 # Streamlit app
 st.title('Face Mask Detector using CNN')
-st.subtitle("""This Convolution Neural Network (CNN) model was trained using images with and without face masks. It currently support pictures with
-file extension 'png', 'jpeg', and 'jpg'. Contact Jacob Akubire @jaakubire@gmail.com for any concerns about using this APP""")
-
+st.markdown("""
+### This Convolutional Neural Network (CNN) model was trained using images with and without face masks. It currently supports pictures with file extensions 'png', 'jpeg', and 'jpg'. Contact Jacob Akubire at [jaakubire@gmail.com](mailto:jaakubire@gmail.com) for any concerns about using this app.
+""")
 # User input
 uploaded_file = st.file_uploader("Choose an image...", type=['png', 'jpeg', 'jpg'])
 if uploaded_file is not None:
