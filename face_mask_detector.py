@@ -38,5 +38,5 @@ if uploaded_file is not None:
     if np.argmax(prediction) == 1:
         st.write(f'*Prediction*: The uploaded image is predicted to be **wearing a face mask** with probability: {prediction_prob:.2f}')
     else:
-        st.write(f'*Prediction*: The uploaded image is predicted to be **not wearing a face mask** with probability: {prediction_prob:.2f}')
+        st.write(f'**Prediction**: The uploaded image is predicted to be **not wearing a face mask** with probability: {prediction_prob:.2f}')
         
