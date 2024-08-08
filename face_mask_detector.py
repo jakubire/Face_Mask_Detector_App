@@ -1,20 +1,24 @@
 import streamlit as st
-import tensorflow as tf
-import cv2
+import tensorflow 
+#import cv2
 from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.image import load_img
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization, Activation
 import numpy as np
 import matplotlib.pyplot as plt
 
 # Load the model
-model = load_model('face_mask_cnn_model.keras')
+model = load_model('face_mask_cnn_model1.keras')
 
-def process_predict_image(image):
+def process_predict_image(image_path):
     # Read the image
-    img = cv2.imdecode(np.fromstring(image.read(), np.uint8), 1)
-    img = cv2.resize(img, (150, 150))
+    img = load_img(image_path, target_size=(128, 128))
+    #img = cv2.imdecode(np.fromstring(image.read(), np.uint8), 1)
+    #img = cv2.resize(img, (150, 150))
     
     # Convert image to RGB
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    #img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     
     # Display the image
     plt.imshow(img)
@@ -22,13 +26,13 @@ def process_predict_image(image):
     plt.show()
     
     # Normalize the image
-    img = img / 255.0
+    img = np.array(img) / 255.0
     
     # Reshape the image for the model
-    img_reshape = np.reshape(img, [1, 150, 150, 3])
+    img_reshape = np.reshape(img, [1, 128, 128, 3])
 
     # Make a prediction
-    prediction = model.predict(img_reshape)
+    prediction = model.predict(img_reshape, verbose =0)
     image_label = np.argmax(prediction)
     
     if image_label == 1:
