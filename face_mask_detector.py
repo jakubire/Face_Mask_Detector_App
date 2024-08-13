@@ -25,7 +25,7 @@ st.markdown("""
 ### This Convolutional Neural Network (CNN) model was trained using images with and without face masks. It currently supports pictures with file extensions 'png', 'jpeg', jfif, and 'jpg'. Contact Jacob Akubire at [jaakubire@gmail.com](mailto:jaakubire@gmail.com) for any concerns about using this app.
 """)
 # User input
-uploaded_file = st.file_uploader("Choose an image...", type=['png', 'jpeg', 'jpg', 'jfif'])
+uploaded_file = st.file_uploader("Choose and upload a face image", type=['png', 'jpeg', 'jpg', 'jfif'])
 if uploaded_file is not None:
     # Load and display the image
     image = load_img(uploaded_file, target_size=(128, 128))
