@@ -24,6 +24,9 @@ st.title('Face Mask Detector using CNN')
 st.markdown("""
 ### This Convolutional Neural Network (CNN) model was trained using images with and without face masks. It currently supports pictures with file extensions 'png', 'jpeg', jfif, and 'jpg'. Contact Jacob Akubire at [jaakubire@gmail.com](mailto:jaakubire@gmail.com) for any concerns about using this app.
 """)
+
+image = Image.open("masked_unmasked_face.png")
+st.image(image, use_column_width=True)
 # User input
 uploaded_file = st.file_uploader("Choose and upload a face image", type=['png', 'jpeg', 'jpg', 'jfif'])
 if uploaded_file is not None:
